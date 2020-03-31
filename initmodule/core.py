@@ -4,6 +4,7 @@
 # Standard library imports
 import logging
 import os
+import venv
 
 # Initmodule imports
 from . import helpers
@@ -26,6 +27,8 @@ def createModule(basepath, name): # type: (str, str) -> None
   # Create parent folder
   if not os.path.isdir(parentPath):
     os.makedirs(parentPath)
+  # Create empty virtual environment
+  venv.create(os.path.join(parentPath, name + 'env'), with_pip=True)
   # Create docs folder
   os.makedirs(os.path.join(parentPath, 'docs'))
   # Create conf.py

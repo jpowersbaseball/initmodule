@@ -271,8 +271,11 @@ readme_template = """
 
 A Python library for doing something.
 
-To run CLI, install the %NAME%/%NAME% folder into your site-packages,
-then get the usage instructions by running
+A virtual environment exclusive to this module has been set up in
+%NAME%env.  Invoke the %NAME%env/scripts/activate and then run
+python setup.py install
+
+To run CLI, get the usage instructions by running
 python -m %NAME% --help
 
 To test, best to make sure coverage and unittest are installed, then from the
@@ -318,6 +321,8 @@ setuptools.setup(
   ],
   keywords='analytics',
   packages=setuptools.find_packages(),
+  package_data={'':['resources/*.csv']},
+  include_package_data=True,
   python_requires='>=3.7',
   entry_points = {'console_scripts': ['%NAME%=%NAME%.__main__:main']}
 )
