@@ -50,6 +50,7 @@ Version:
 # Standard library imports
 import logging
 import argparse
+import sys
 
 # %NAME% imports
 import %NAME%.core as %UPPER%
@@ -61,7 +62,7 @@ def main(): # type: () -> None
   leParser.add_argument('--input', help='A text file with your input')
   leParser.add_argument('--output', help='The file you want the results in')
   lesArgs = leParser.parse_args()
-  if lesArgs.input is None or lesArgs.output is None:
+  if not hasattr(lesArgs, 'input') or not hasattr(lesArgs, 'output'):
     logging.error('%NAME% needs an input file and an output file')
     leParser.print_help()
     sys.exit(2)
