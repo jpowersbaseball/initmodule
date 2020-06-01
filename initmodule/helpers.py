@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
 modcore_template = """
 # -*- coding: utf-8 -*-
-\"\"\"%%NAME%% library\"\"\"
+\"\"\"%NAME% library\"\"\"
 
 # Standard library imports
 import logging
@@ -218,6 +218,9 @@ gitignore_template = """
 *.sh
 *.bat
 
+# Local config
+*.ini
+
 # IDE
 .spyproject/
 .spyderproject/
@@ -225,6 +228,14 @@ gitignore_template = """
 
 # Test results
 .coverage
+
+# Virtual Environment
+%NAME%env/
+
+# Build artifacts
+%NAME%.egg-info
+build/
+dist/
 """
 
 cli_template = """
@@ -285,11 +296,12 @@ coverage run --source %NAME% -m unittest tests.test_basic
 To create a Windows executable, make sure pyinstaller is installed and run
 pyinstaller cli.py --name %NAME% --onefile
 
-'%NAME% <https://www.example.com>'_
+`%NAME% <https://www.example.com>`_
 """
 
 requirements_template = """
 setuptools
+coverage
 """
 
 setup_template = """

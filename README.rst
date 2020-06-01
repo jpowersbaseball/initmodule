@@ -18,4 +18,4 @@ are created automatically.
 To create a Windows executable, make sure pyinstaller is installed and run
 pyinstaller cli.py --name initmodule --onefile
 
-'Initialize Module <https://packaging.python.org/tutorials/packaging-projects/>'_
+`Initialize Module <https://packaging.python.org/tutorials/packaging-projects/>`_
